@@ -1,11 +1,9 @@
 ---
 // src/components/Navbar.astro
 
-import type { Props } from 'astro';
 const { title = 'El Clinic Dental' } = Astro.props;
 ---
 
-<!-- Стилі для мобільного меню -->
 <style is:global>
     .mobile-menu {
         max-height: 0;
@@ -15,44 +13,82 @@ const { title = 'El Clinic Dental' } = Astro.props;
     .mobile-menu.open {
         max-height: 500px;
     }
+
+    .modal-overlay {
+        @apply fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center;
+        backdrop-filter: blur(3px);
+    }
+
+    .modal-content {
+        @apply bg-[#2A2525] rounded-xl p-8 max-w-md w-full mx-4;
+    }
 </style>
 
 <header class="bg-gradient-to-r from-[#201C1C] to-[#1B1818] text-white shadow-lg fixed w-full top-0 z-50">
     <div class="container mx-auto px-4">
-        <!-- Десктоп навбар -->
-        <div class="hidden lg:flex items-center justify-between py-4">
-            <!-- Контакти -->
-            <div class="flex items-center space-x-6">
-                <a href="tel:+380662621300" class="hover:text-yellow-400 transition-colors text-sm">📞 +38 (066) 262 13 00</a>
-                <a href="tel:+380982601300" class="hover:text-yellow-400 transition-colors text-sm">📞 +38 (098) 260 13 00</a>
+        <!-- Десктоп версия -->
+        <div class="hidden lg:flex items-center justify-between py-4 gap-6">
+            <!-- Логотип и телефоны -->
+            <div class="flex items-center gap-8">
+                <a href="/" class="flex-shrink-0">
+                    <img
+                            src="https://elclinic.com.ua/wp-content/uploads/2024/12/logo-2-1.webp"
+                            alt="El Clinic Dental Logo"
+                            class="h-16 w-auto rounded-lg border-2 border-white"
+                    >
+                </a>
+                <div class="flex flex-col">
+                    <div class="flex gap-4">
+                        <a href="tel:+380662621300" class="hover:text-yellow-400 flex items-center gap-2">
+                            <span>📞</span>
+                            <span>+38 (066) 262-13-00</span>
+                        </a>
+                        <a href="tel:+380982601300" class="hover:text-yellow-400 flex items-center gap-2">
+                            <span>📞</span>
+                            <span>+38 (098) 260-13-00</span>
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- Навігація -->
-            <nav class="flex space-x-8">
-                <a href="#services" class="hover:text-yellow-400 transition-colors">Послуги</a>
-                <a href="#about" class="hover:text-yellow-400 transition-colors">Про нас</a>
-                <a href="#doctors" class="hover:text-yellow-400 transition-colors">Лікарі</a>
-                <a href="#prices" class="hover:text-yellow-400 transition-colors">Ціни</a>
-                <a href="#reviews" class="hover:text-yellow-400 transition-colors">Відгуки</a>
-                <a href="#contact" class="hover:text-yellow-400 transition-colors">Контакти</a>
-            </nav>
-
-            <!-- Кнопка запису -->
-            <button class="bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 px-6 py-3 rounded text-sm font-bold shadow-lg transform transition-transform hover:scale-105 text-[#201C1C] ml-4">
-                🦷 Записатись
-            </button>
+            <!-- Навигация и кнопка -->
+            <div class="flex items-center gap-8">
+                <nav class="flex space-x-6">
+                    <a href="#services" class="hover:text-yellow-400">Послуги</a>
+                    <a href="#doctors" class="hover:text-yellow-400">Лікарі</a>
+                    <a href="#prices" class="hover:text-yellow-400">Ціни</a>
+                    <a href="#reviews" class="hover:text-yellow-400">Відгуки</a>
+                </nav>
+                <button
+                        data-modal-toggle
+                        class="bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 px-6 py-3 rounded text-sm font-bold shadow-lg transform transition-transform hover:scale-105 text-[#201C1C]">
+                    🦷 Записатись
+                </button>
+            </div>
         </div>
 
-        <!-- Мобільний навбар -->
-        <div class="lg:hidden flex items-center justify-between py-4">
-            <!-- Лого та контакти -->
-            <div class="flex flex-col">
-                <h1 class="text-xl font-bold">{title}</h1>
-                <p class="text-sm">📍 Тбіліська 17</p>
-            </div>
+        <!-- Мобильная версия -->
+        <div class="lg:hidden flex items-center justify-between py-4 gap-4">
+            <!-- Логотип -->
+            <a href="/" class="flex-shrink-0">
+                <img
+                        src="https://elclinic.com.ua/wp-content/uploads/2024/12/logo-2-1.webp"
+                        alt="Logo"
+                        class="h-12 w-auto rounded-lg border-2 border-white"
+                >
+            </a>
 
-            <!-- Іконки управління -->
-            <div class="flex items-center space-x-4">
+            <!-- Телефоны и кнопки -->
+            <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end text-sm">
+                    <a href="tel:+380662621300" class="hover:text-yellow-400">+38 066 262 13 00</a>
+                    <a href="tel:+380982601300" class="hover:text-yellow-400">+38 098 260 13 00</a>
+                </div>
+                <button
+                        data-modal-toggle
+                        class="bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 px-4 py-2 rounded text-sm font-bold shadow-lg transform transition-transform hover:scale-105 text-[#201C1C]">
+                    🦷 Запис
+                </button>
                 <button id="mobile-menu-button" class="text-gray-300 hover:text-white p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -62,47 +98,140 @@ const { title = 'El Clinic Dental' } = Astro.props;
         </div>
     </div>
 
-    <!-- Мобільне меню -->
+    <!-- Мобильное меню -->
     <div id="mobile-menu" class="lg:hidden mobile-menu bg-[#2A2525]">
         <div class="container mx-auto px-4 py-4">
             <div class="flex flex-col space-y-4">
                 <a href="#services" class="block py-2 hover:text-yellow-400">Послуги</a>
-                <a href="#about" class="block py-2 hover:text-yellow-400">Про нас</a>
                 <a href="#doctors" class="block py-2 hover:text-yellow-400">Лікарі</a>
                 <a href="#prices" class="block py-2 hover:text-yellow-400">Ціни</a>
                 <a href="#reviews" class="block py-2 hover:text-yellow-400">Відгуки</a>
-                <a href="#contact" class="block py-2 hover:text-yellow-400">Контакти</a>
-                <div class="pt-4 border-t border-gray-700">
-                    <a href="tel:+380662621300" class="block text-sm py-1">📞 +38 (066) 262 13 00</a>
-                    <a href="tel:+380982601300" class="block text-sm py-1">📞 +38 (098) 260 13 00</a>
-                    <p class="text-sm pt-2">🕒 Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00</p>
-                </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Скрипт для мобільного меню -->
+
+<!-- Модальное окно -->
+<div id="modal" class="hidden">
+    <div class="modal-content">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold">Запис на прийом</h3>
+            <button onclick="hideModal()" class="text-gray-400 hover:text-white">
+                ✕
+            </button>
+        </div>
+
+        <form class="space-y-4">
+            <div>
+                <label class="block mb-2">Ваше ім'я</label>
+                <input type="text" class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+            </div>
+
+            <div>
+                <label class="block mb-2">Номер телефону</label>
+                <input type="tel" class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+            </div>
+
+            <div>
+                <label class="block mb-2">Оберіть послугу</label>
+                <select class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    <option>Консультація</option>
+                    <option>Лікування карієсу</option>
+                    <option>Професійне чищення</option>
+                </select>
+            </div>
+
+            <button
+                    type="submit"
+                    class="w-full bg-yellow-500 hover:bg-yellow-400 text-[#201C1C] font-bold py-3 rounded-lg transition-colors">
+                Підтвердити запис
+            </button>
+        </form>
+    </div>
+</div>
+
 <script is:inline>
+    // Единый обработчик инициализации
     document.addEventListener('DOMContentLoaded', () => {
+        // Мобильное меню
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        mobileMenuButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('open');
-        });
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('open');
+            });
 
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                mobileMenu.classList.remove('open');
-            }
-        });
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                    mobileMenu.classList.remove('open');
+                }
+            });
 
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+            });
+        }
+
+        // Модальное окно
+        const modal = document.getElementById('modal');
+
+        // Обработчики открытия
+        document.querySelectorAll('[data-modal-toggle]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal();
             });
         });
+
+        // Обработчики закрытия
+        if (modal) {
+            modal.querySelectorAll('button[onclick="hideModal()"]').forEach(btn => {
+                btn.addEventListener('click', hideModal);
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) hideModal();
+            });
+        }
     });
+
+    // Функции управления модалкой
+    function showModal() {
+        const modal = document.getElementById('modal');
+        if (!modal) return;
+
+        modal.classList.remove('hidden');
+        modal.classList.add('modal-overlay');
+        document.addEventListener('keydown', handleEscapeKey);
+        // document.addEventListener('click', closeModalOnOutsideClick);
+        console.log('showModal');
+
+    }
+
+    function hideModal() {
+        const modal = document.getElementById('modal');
+        if (!modal) return;
+
+        modal.classList.add('hidden');
+        modal.classList.remove('modal-overlay');
+        document.removeEventListener('keydown', handleEscapeKey);
+        // document.removeEventListener('click', closeModalOnOutsideClick);
+        console.log('hideModal');
+    }
+
+    // function closeModalOnOutsideClick(e) {
+    //     const modalContent = document.querySelector('.modal-content');
+    //     if (modalContent && !modalContent.contains(e.target)) {
+    //         hideModal();
+    //     }
+    // }
+
+    function handleEscapeKey(e) {
+        if (e.key === 'Escape' && !document.getElementById('modal')?.classList.contains('hidden')) {
+            hideModal();
+        }
+    }
 </script>
