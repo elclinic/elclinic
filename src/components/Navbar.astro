@@ -1,0 +1,108 @@
+---
+// src/components/Navbar.astro
+
+import type { Props } from 'astro';
+const { title = 'El Clinic Dental' } = Astro.props;
+---
+
+<!-- Стилі для мобільного меню -->
+<style is:global>
+    .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    .mobile-menu.open {
+        max-height: 500px;
+    }
+</style>
+
+<header class="bg-gradient-to-r from-[#201C1C] to-[#1B1818] text-white shadow-lg fixed w-full top-0 z-50">
+    <div class="container mx-auto px-4">
+        <!-- Десктоп навбар -->
+        <div class="hidden lg:flex items-center justify-between py-4">
+            <!-- Контакти -->
+            <div class="flex items-center space-x-6">
+                <a href="tel:+380662621300" class="hover:text-yellow-400 transition-colors text-sm">📞 +38 (066) 262 13 00</a>
+                <a href="tel:+380982601300" class="hover:text-yellow-400 transition-colors text-sm">📞 +38 (098) 260 13 00</a>
+            </div>
+
+            <!-- Навігація -->
+            <nav class="flex space-x-8">
+                <a href="#services" class="hover:text-yellow-400 transition-colors">Послуги</a>
+                <a href="#about" class="hover:text-yellow-400 transition-colors">Про нас</a>
+                <a href="#doctors" class="hover:text-yellow-400 transition-colors">Лікарі</a>
+                <a href="#prices" class="hover:text-yellow-400 transition-colors">Ціни</a>
+                <a href="#reviews" class="hover:text-yellow-400 transition-colors">Відгуки</a>
+                <a href="#contact" class="hover:text-yellow-400 transition-colors">Контакти</a>
+            </nav>
+
+            <!-- Кнопка запису -->
+            <button class="bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 px-6 py-3 rounded text-sm font-bold shadow-lg transform transition-transform hover:scale-105 text-[#201C1C] ml-4">
+                🦷 Записатись
+            </button>
+        </div>
+
+        <!-- Мобільний навбар -->
+        <div class="lg:hidden flex items-center justify-between py-4">
+            <!-- Лого та контакти -->
+            <div class="flex flex-col">
+                <h1 class="text-xl font-bold">{title}</h1>
+                <p class="text-sm">📍 Тбіліська 17</p>
+            </div>
+
+            <!-- Іконки управління -->
+            <div class="flex items-center space-x-4">
+                <button id="mobile-menu-button" class="text-gray-300 hover:text-white p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Мобільне меню -->
+    <div id="mobile-menu" class="lg:hidden mobile-menu bg-[#2A2525]">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col space-y-4">
+                <a href="#services" class="block py-2 hover:text-yellow-400">Послуги</a>
+                <a href="#about" class="block py-2 hover:text-yellow-400">Про нас</a>
+                <a href="#doctors" class="block py-2 hover:text-yellow-400">Лікарі</a>
+                <a href="#prices" class="block py-2 hover:text-yellow-400">Ціни</a>
+                <a href="#reviews" class="block py-2 hover:text-yellow-400">Відгуки</a>
+                <a href="#contact" class="block py-2 hover:text-yellow-400">Контакти</a>
+                <div class="pt-4 border-t border-gray-700">
+                    <a href="tel:+380662621300" class="block text-sm py-1">📞 +38 (066) 262 13 00</a>
+                    <a href="tel:+380982601300" class="block text-sm py-1">📞 +38 (098) 260 13 00</a>
+                    <p class="text-sm pt-2">🕒 Пн-Пт: 8:00-20:00<br>Сб: 9:00-18:00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Скрипт для мобільного меню -->
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.remove('open');
+            }
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+    });
+</script>
