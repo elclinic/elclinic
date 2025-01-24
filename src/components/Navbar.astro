@@ -122,7 +122,7 @@ const { title = 'El Clinic Dental' } = Astro.props;
             </button>
         </div>
 
-        <form class="space-y-4" action="https://formspree.io/f/mjkgkygl"
+        <form class="space-y-4"
               method="POST">
             <div>
                 <label class="block mb-2">Ваше ім'я</label>
@@ -136,7 +136,7 @@ const { title = 'El Clinic Dental' } = Astro.props;
 
             <div>
                 <label class="block mb-2">Оберіть послугу</label>
-                <select class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <select name="service" class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
                     <option>Консультація</option>
                     <option>Лікування карієсу</option>
                     <option>Професійне чищення</option>
@@ -235,4 +235,49 @@ const { title = 'El Clinic Dental' } = Astro.props;
             hideModal();
         }
     }
+
+
+
+//form___________________________________________________________
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault(); // Предотвращаем стандартное поведение отправки формы
+            const submitButton = form.querySelector("button[type='submit']");
+            submitButton.disabled = true; // Отключаем кнопку
+            submitButton.textContent = "Отправка...";
+
+            // Собираем данные из формы
+            const formData = new FormData(form);
+            const data = {
+                to: 'admin@elclinic.com.ua',
+                subject: 'Запис на прийом',
+                message: `Ім'я: ${formData.get("name")}\nТелефон: ${formData.get("tel")}\nПослуга: ${formData.get("service")}`,
+            };
+
+            try {
+                // Отправляем данные на ваш API
+                const response = await fetch("/api/send-email", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert("Форма успешно отправлена!");
+                } else {
+                    alert("Ошибка отправки. Попробуйте еще раз.");
+                }
+                submitButton.disabled = false; // Включаем кнопку обратно
+                submitButton.textContent = "Підтвердити запис";
+            } catch (error) {
+                console.error("Ошибка:", error);
+                alert("Произошла ошибка. Попробуйте еще раз.");
+            }
+        });
+    });
 </script>
