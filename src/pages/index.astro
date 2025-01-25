@@ -1,6 +1,6 @@
 ---
-// src/pages/index.astro
 import Navbar from '../components/Navbar.astro';
+const counter_url = "https://www.statcounter.com/counter/counter.js";
 ---
 
 <html lang="uk">
@@ -8,286 +8,280 @@ import Navbar from '../components/Navbar.astro';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Clinic Dental - Стоматологія Запоріжжя</title>
-    <script type="text/javascript">
-        var sc_project=13081625;
-        var sc_invisible=1;
-        var sc_security="ebf77a56";
-    </script>
-    <script type="text/javascript"
-            src="https://www.statcounter.com/counter/counter.js" async></script>
 </head>
 <body class="bg-[#201C1C] text-white font-sans pt-20">
 <Navbar/>
 
 <main class="container mx-auto px-4 lg:px-8 pb-20">
 
-    <!-- Hero Section -->
-    <section class="text-center py-16">
-        <h1 class="text-4xl font-extrabold bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent mb-8 text-center">
-            El Clinic Dental - сучасна стоматологічна клініка в Запоріжжі
-        </h1>
-        <p class="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
-            Інноваційні технології лікування та профілактики захворювань зубів у самому центрі Запоріжжя
-        </p>
-    </section>
+<!-- Hero Section -->
+<section class="text-center py-12">
+<h1 class="text-4xl font-extrabold bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent mb-6 text-center">
+El Clinic Dental - сучасна стоматологічна клініка в Запоріжжі
+</h1>
+<p class="text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
+Інноваційні технології лікування та профілактики захворювань зубів у самому центрі Запоріжжя
+</p>
+</section>
 
-    <!-- Services -->
+<!-- About Section -->
+<section id="about" class="scroll-mt-16">
+<div class="max-w-screen-xl mx-auto mb-12">
+<div class="bg-[#2A2525] rounded-2xl p-6 lg:p-10 shadow-xl">
+<h2 class="text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent mb-6 text-center">
+Ласкаво просимо до El Clinic Dental
+</h2>
 
+<div class="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center">
+<div class="lg:w-1/2">
+<img
+src="https://elclinic.com.ua/wp-content/uploads/2025/01/vhod.jpg"
+alt="Інтер'єр клініки"
+class="w-full h-auto rounded-xl shadow-xl object-cover"
+loading="lazy"
+>
+</div>
 
+<div class="lg:w-1/2 space-y-4 text-left">
+<p class="text-lg text-gray-300 leading-relaxed">
+Наша клініка пропонує повний спектр стоматологічних послуг для всієї родини.
+Використовуючи європейські стандарти та сучасне обладнання, ми гарантуємо:
+</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-2">
+<div class="w-6 h-6 bg-gray-500 rounded-full flex-shrink-0 flex items-center justify-center">
+<span class="text-white text-sm">✓</span>
+</div>
+<span class="text-gray-400">Безболісне лікування</span>
+</li>
+<li class="flex items-start gap-2">
+<div class="w-6 h-6 bg-gray-500 rounded-full flex-shrink-0 flex items-center justify-center">
+<span class="text-white text-sm">✓</span>
+</div>
+<span class="text-gray-400">Сучасне обладнання</span>
+</li>
+<li class="flex items-start gap-2">
+<div class="w-6 h-6 bg-gray-500 rounded-full flex-shrink-0 flex items-center justify-center">
+<span class="text-white text-sm">✓</span>
+</div>
+<span class="text-gray-400">Індивідуальний підхід</span>
+</li>
+</ul>
+<div class="mt-4">
+<button
+data-modal-toggle
+class="bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-500 hover:to-gray-400 px-6 py-3 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105 text-[#201C1C]">
+🦷 Записатись на консультацію
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="scroll-mt-20">
-        <div class="max-w-screen-xl mx-auto mb-16">
-            <div class="bg-[#2A2525] rounded-2xl p-8 lg:p-12 shadow-xl">
-                <h2 class="text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent mb-8 text-center">
-                    Ласкаво просимо до El Clinic Dental
-                </h2>
+<!-- Services -->
+<section id="services" class="scroll-mt-16">
+<div class="max-w-screen-xl mx-auto bg-[#2A2525] rounded-2xl p-6 lg:p-10 shadow-xl mb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+<!-- Service Cards -->
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">🦷</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Лікування карієсу
+</h3>
+<p class="text-gray-400 text-sm">Сучасні пломбувальні матеріали</p>
+</div>
 
-                <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-                    <div class="lg:w-1/2">
-                        <img
-                                src="https://elclinic.com.ua/wp-content/uploads/2025/01/vhod.jpg"
-                                alt="Інтер'єр клініки"
-                                class="w-full h-auto rounded-xl shadow-xl object-cover"
-                                loading="lazy"
-                        >
-                    </div>
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">🪥</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Лікування кореневих каналів
+</h3>
+<p class="text-gray-400 text-sm">Сучасні методи лікування</p>
+</div>
 
-                    <div class="lg:w-1/2 space-y-6 text-left">
-                        <p class="text-lg text-gray-300 leading-relaxed">
-                            Наша клініка пропонує повний спектр стоматологічних послуг для всієї родини.
-                            Використовуючи європейські стандарти та сучасне обладнання, ми гарантуємо:
-                        </p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <div class="w-6 h-6 bg-gray-500 rounded-full flex-shrink-0 flex items-center justify-center">
-                                    <span class="text-white text-sm">✓</span>
-                                </div>
-                                <span class="text-gray-400">Безболісне лікування</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <div class="w-6 h-6 bg-gray-500 rounded-full flex-shrink-0 flex items-center justify-center">
-                                    <span class="text-white text-sm">✓</span>
-                                </div>
-                                <span class="text-gray-400">Сучасне обладнання</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <div class="w-6 h-6 bg-gray-500 rounded-full flex-shrink-0 flex items-center justify-center">
-                                    <span class="text-white text-sm">✓</span>
-                                </div>
-                                <span class="text-gray-400">Індивідуальний підхід</span>
-                            </li>
-                        </ul>
-                        <div class="mt-6">
-                            <button
-                                    data-modal-toggle
-                                    class="bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-500 hover:to-gray-400 px-8 py-4 rounded-lg font-bold shadow-lg transform transition-all hover:scale-105 text-[#201C1C]">
-                                🦷 Записатись на консультацію
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">🦷</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Керамічні реставраціі
+</h3>
+<p class="text-gray-400 text-sm">Високоякісні матеріали</p>
+</div>
 
-    <!-- Services -->
-    <section id="services" class="scroll-mt-20">
-        <div class="max-w-screen-xl mx-auto bg-[#2A2525] rounded-2xl p-8 lg:p-12 shadow-xl mb-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-                <!-- Service Cards -->
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">🦷</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Лікування карієсу
-                    </h3>
-                    <p class="text-gray-400 text-sm">Сучасні пломбувальні матеріали</p>
-                </div>
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">👑</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Цирконієві коронки
+</h3>
+<p class="text-gray-400 text-sm">Надійні та естетичні</p>
+</div>
 
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">🪥</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Лікування кореневих каналів
-                    </h3>
-                    <p class="text-gray-400 text-sm">Сучасні методи лікування</p>
-                </div>
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">🦷</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Металокерамічні коронки
+</h3>
+<p class="text-gray-400 text-sm">Довговічні та міцні</p>
+</div>
 
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">🦷</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Керамічні реставраціі
-                    </h3>
-                    <p class="text-gray-400 text-sm">Високоякісні матеріали</p>
-                </div>
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">🦷</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Встановлення брекетів
+</h3>
+<p class="text-gray-400 text-sm">Сучасні системи</p>
+</div>
 
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">👑</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Цирконієві коронки
-                    </h3>
-                    <p class="text-gray-400 text-sm">Надійні та естетичні</p>
-                </div>
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">💤</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Лі��ування зубів уві сні
+</h3>
+<p class="text-gray-400 text-sm">Безболісне лікування</p>
+</div>
 
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">🦷</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Металокерамічні коронки
-                    </h3>
-                    <p class="text-gray-400 text-sm">Довговічні та міцні</p>
-                </div>
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">🦷</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Видалення зубів
+</h3>
+<p class="text-gray-400 text-sm">Професійне видалення</p>
+</div>
 
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">🦷</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Встановлення брекетів
-                    </h3>
-                    <p class="text-gray-400 text-sm">Сучасні системи</p>
-                </div>
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">🦷</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Імплантація
+</h3>
+<p class="text-gray-400 text-sm">Сучасні імпланти</p>
+</div>
 
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">💤</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Лікування зубів уві сні
-                    </h3>
-                    <p class="text-gray-400 text-sm">Безболісне лікування</p>
-                </div>
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">🧒</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Дитяча стоматологія
+</h3>
+<p class="text-gray-400 text-sm">Турбота про дітей</p>
+</div>
 
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">🦷</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Видалення зубів
-                    </h3>
-                    <p class="text-gray-400 text-sm">Професійне видалення</p>
-                </div>
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">🦷</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Вініри
+</h3>
+<p class="text-gray-400 text-sm">Естетичні реставрації</p>
+</div>
 
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">🦷</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Імплантація
-                    </h3>
-                    <p class="text-gray-400 text-sm">Сучасні імпланти</p>
-                </div>
+<div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-4 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
+<div class="w-12 h-12 bg-gray-500 rounded-lg mb-3 flex items-center justify-center">
+<span class="text-white text-2xl">🦷</span>
+</div>
+<h3 class="text-xl font-semibold mb-1 text-gray-100 group-hover:text-gray-400 transition-colors">
+Ортодонтія
+</h3>
+<p class="text-gray-400 text-sm">Виправлення прикусу</p>
+</div>
+</div>
+</div>
+</section>
 
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">🧒</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Дитяча стоматологія
-                    </h3>
-                    <p class="text-gray-400 text-sm">Турбота про дітей</p>
-                </div>
+<!-- Doctors -->
+<section id="doctors" class="scroll-mt-16 py-12 bg-[#201C1C]">
+<h2 class="text-3xl font-bold text-center mb-8">Наші лікарі</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-[#2A2525] rounded-xl p-4 text-center">
+<img
+src="https://placehold.co/400x400/2A2525/FFFFFF?text=Dr.+Ivanov"
+alt="Стоматолог"
+class="w-32 h-32 rounded-full mx-auto mb-3 object-cover"
+width="400"
+height="400"
+>
+<h3 class="text-xl font-semibold">Олена Петренко</h3>
+<p class="text-gray-300">Стоматолог-ортопед</p>
+</div>
+<!-- Добавьте остальных врачей -->
+</div>
+</section>
 
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">🦷</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Вініри
-                    </h3>
-                    <p class="text-gray-400 text-sm">Естетичні реставрації</p>
-                </div>
-
-                <div class="group bg-gradient-to-b from-[#363232] to-[#2A2525] p-6 rounded-xl hover:-translate-y-2 transition-all duration-300 shadow-lg">
-                    <div class="w-12 h-12 bg-gray-500 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-white text-2xl">🦷</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-100 group-hover:text-gray-400 transition-colors">
-                        Ортодонтія
-                    </h3>
-                    <p class="text-gray-400 text-sm">Виправлення прикусу</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Doctors -->
-    <section id="doctors" class="scroll-mt-20 py-16 bg-[#201C1C]">
-        <h2 class="text-3xl font-bold text-center mb-12">Наші лікарі</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-[#2A2525] rounded-xl p-6 text-center">
-                <img
-                        src="https://placehold.co/400x400/2A2525/FFFFFF?text=Dr.+Ivanov"
-                        alt="Стоматолог"
-                        class="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                        width="400"
-                        height="400"
-                >
-                <h3 class="text-xl font-semibold">Олена Петренко</h3>
-                <p class="text-gray-300">Стоматолог-ортопед</p>
-            </div>
-            <!-- Добавьте остальных врачей -->
-        </div>
-    </section>
-
-    <!-- Reviews -->
-    <section id="reviews" class="scroll-mt-20 py-16">
-        <h2 class="text-3xl font-bold text-center mb-12">Відгуки пацієнтів</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="bg-[#2A2525] rounded-xl p-6">
-                <p class="mb-4">"Професійний підхід та безболісне лікування. Рекомендую!"</p>
-                <div class="flex items-center gap-4">
-                    <img
-                            src="https://placehold.co/100x100/2A2525/FFFFFF?text=AV"
-                            class="w-12 h-12 rounded-full"
-                            alt="Аватар"
-                    >
-                    <div>
-                        <p class="font-semibold">Анна Коваленко</p>
-                        <p class="text-sm text-gray-400">10.07.2024</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Добавьте остальные отзывы -->
-        </div>
-    </section>
+<!-- Reviews -->
+<section id="reviews" class="scroll-mt-16 py-12">
+<h2 class="text-3xl font-bold text-center mb-8">Відгуки пацієнтів</h2>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="bg-[#2A2525] rounded-xl p-4">
+<p class="mb-3">"Професійний підхід та безболісне лікування. Рекомендую!"</p>
+<div class="flex items-center gap-3">
+<img
+src="https://placehold.co/100x100/2A2525/FFFFFF?text=AV"
+class="w-12 h-12 rounded-full"
+alt="Аватар"
+>
+<div>
+<p class="font-semibold">Анна Коваленко</p>
+<p class="text-sm text-gray-400">10.07.2024</p>
+</div>
+</div>
+</div>
+<!-- Добавьте остальные отзывы -->
+</div>
+</section>
 </main>
 
 <!-- Footer -->
-<footer id="contact" class="bg-[#1B1818] py-12">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h3 class="text-xl font-bold mb-4">Контакти</h3>
-                <p class="mb-2">📍 Тбіліська 17, Запоріжжя</p>
-                <p class="mb-2">🕒 Пн-Пт: 8:00-20:00</p>
-                <p>🕒 Сб: 9:00-18:00</p>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold mb-4">Телефони</h3>
-                <a href="tel:+380662621300" class="block mb-2 hover:text-gray-400">📞 +38 (066) 262 13 00</a>
-                <a href="tel:+380982601300" class="block hover:text-gray-400">📞 +38 (098) 260 13 00</a>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold mb-4">Соцмережі</h3>
-                <div class="flex space-x-4">
-                    <a href="#" class="hover:text-gray-400">📱 Instagram</a>
-                    <a href="#" class="hover:text-gray-400">📘 Facebook</a>
-                </div>
-            </div>
-        </div>
-        <p class="text-center mt-8 text-gray-400">© 2024 El Clinic Dental. Всі права захищені</p>
-    </div>
+<footer id="contact" class="bg-[#1B1818] py-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div>
+<h3 class="text-xl font-bold mb-3">Контакти</h3>
+<p class="mb-1">📍 Тбіліська 17, Запоріжжя</p>
+<p class="mb-1">🕒 Пн-Пт: 8:00-20:00</p>
+<p>🕒 Сб: 9:00-18:00</p>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-3">Телефони</h3>
+<a href="tel:+380662621300" class="block mb-1 hover:text-gray-400">📞 +38 (066) 262 13 00</a>
+<a href="tel:+380982601300" class="block hover:text-gray-400">📞 +38 (098) 260 13 00</a>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-3">Соцмережі</h3>
+<div class="flex space-x-3">
+<a href="#" class="hover:text-gray-400">📱 Instagram</a>
+<a href="#" class="hover:text-gray-400">📘 Facebook</a>
+</div>
+</div>
+</div>
+<p class="text-center mt-6 text-gray-400">© 2024 El Clinic Dental. Всі права захищені</p>
+</div>
 </footer>
-
-
+<script is:inline type="text/javascript">
+    var sc_project = 13081625;
+    var sc_invisible = 1;
+    var sc_security = "ebf77a56";
+</script>
+<script is:inline type="text/javascript"
+        src="https://www.statcounter.com/counter/counter.js" async></script>
 </body>
 </html>
