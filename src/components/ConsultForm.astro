@@ -1,0 +1,96 @@
+---
+// src/components/ConsultForm.astro
+---
+
+<style is:global>
+    .consult-form {
+        @apply bg-[#2A2525] rounded-xl p-6 max-w-2xl mx-auto;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    }
+</style>
+
+<div class="consult-form mb-4">
+    <h2 class="text-2xl font-bold mb-6 text-white">Отримати консультацію</h2>
+
+    <form class="space-y-6" method="POST">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div>
+                <label class="block text-gray-300 mb-2">Місце</label>
+                <select
+                        name="place"
+                        class="w-full bg-[#3A3535] rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
+                >
+                    <option value="office">Офіс (Київ)</option>
+                    <option value="online">Онлайн консультація</option>
+                    <option value="home">Виїзд додому</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-gray-300 mb-2">Тестифікації</label>
+                <select
+                        name="certification"
+                        class="w-full bg-[#3A3535] rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
+                >
+                    <option value="basic">Базова перевірка</option>
+                    <option value="full">Повна діагностика</option>
+                    <option value="expert">Експертний аналіз</option>
+                </select>
+            </div>
+        </div>
+
+        <button
+                type="submit"
+                class="w-full bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-500 hover:to-gray-400 text-[#201C1C] font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02]"
+        >
+            Відправляти
+        </button>
+    </form>
+</div>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector(".consult-form form");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const submitButton = form.querySelector("button[type='submit']");
+            const originalText = submitButton.textContent;
+
+            submitButton.disabled = true;
+            submitButton.innerHTML = `
+        <svg class="animate-spin h-5 w-5 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      `;
+
+            const formData = new FormData(form);
+            const data = {
+                to: 'admin@elclinic.com.ua',
+                subject: 'Нова консультація',
+                message: `Місце: ${formData.get("place")}\nТестифікації: ${formData.get("certification")}`
+            };
+
+            try {
+                const response = await fetch("/api/send-email", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert("Запит успішно відправлено!");
+                    form.reset();
+                } else {
+                    throw new Error('Помилка відправки');
+                }
+            } catch (error) {
+                alert("Помилка: " + error.message);
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        });
+    });
+</script>

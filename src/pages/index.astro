@@ -4,7 +4,7 @@ import About from '../components/About.astro';
 import Services from '../components/Services.astro';
 import Doctors from '../components/Doctors.astro';
 import Reviews from '../components/Reviews.astro';
-const counter_url = "https://www.statcounter.com/counter/counter.js";
+import ConsultForm from '../components/ConsultForm.astro';
 ---
 
 <html lang="uk">
@@ -35,9 +35,10 @@ const counter_url = "https://www.statcounter.com/counter/counter.js";
             і використовуємо найсучасніше обладнання для якісного та безболісного лікування та протезування зубів.
         </p>
     </section>
-
+    <ConsultForm />
     <!-- About Section -->
     <About />
+
 
     <!-- Services -->
     <Services />
@@ -47,6 +48,7 @@ const counter_url = "https://www.statcounter.com/counter/counter.js";
 
     <!-- Reviews -->
     <Reviews />
+
 </main>
 
 <!-- Footer -->
