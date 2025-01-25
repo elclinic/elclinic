@@ -1,7 +1,7 @@
 ---
 // src/components/Navbar.astro
 
-const { title = 'El Clinic Dental' } = Astro.props;
+const {title = 'El Clinic Dental'} = Astro.props;
 ---
 
 <style is:global>
@@ -10,6 +10,7 @@ const { title = 'El Clinic Dental' } = Astro.props;
         overflow: hidden;
         transition: max-height 0.3s ease-out;
     }
+
     .mobile-menu.open {
         max-height: 500px;
     }
@@ -39,11 +40,11 @@ const { title = 'El Clinic Dental' } = Astro.props;
                 </a>
                 <div class="flex flex-col">
                     <div class="flex gap-4">
-                        <a href="tel:+380662621300" class="hover:text-yellow-400 flex items-center gap-2">
+                        <a href="tel:+380662621300" class="hover:text-gray-400 flex items-center gap-2">
                             <span>📞</span>
                             <span>+38 (066) 262-13-00</span>
                         </a>
-                        <a href="tel:+380982601300" class="hover:text-yellow-400 flex items-center gap-2">
+                        <a href="tel:+380982601300" class="hover:text-gray-400 flex items-center gap-2">
                             <span>📞</span>
                             <span>+38 (098) 260-13-00</span>
                         </a>
@@ -54,14 +55,14 @@ const { title = 'El Clinic Dental' } = Astro.props;
             <!-- Навигация и кнопка -->
             <div class="flex items-center gap-8">
                 <nav class="flex space-x-6">
-                    <a href="#services" class="hover:text-yellow-400">Послуги</a>
-                    <a href="#doctors" class="hover:text-yellow-400">Лікарі</a>
-                    <a href="#prices" class="hover:text-yellow-400">Ціни</a>
-                    <a href="#reviews" class="hover:text-yellow-400">Відгуки</a>
+                    <a href="#services" class="hover:text-gray-400">Послуги</a>
+                    <a href="#doctors" class="hover:text-gray-400">Лікарі</a>
+                    <a href="#prices" class="hover:text-gray-400">Ціни</a>
+                    <a href="#reviews" class="hover:text-gray-400">Відгуки</a>
                 </nav>
                 <button
                         data-modal-toggle
-                        class="bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 px-6 py-3 rounded text-sm font-bold shadow-lg transform transition-transform hover:scale-105 text-[#201C1C]">
+                        class="bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-500 hover:to-gray-400 px-6 py-3 rounded text-sm font-bold shadow-lg transform transition-transform hover:scale-105 text-[#201C1C]">
                     🦷 Записатись
                 </button>
             </div>
@@ -81,17 +82,18 @@ const { title = 'El Clinic Dental' } = Astro.props;
             <!-- Телефоны и кнопки -->
             <div class="flex items-center gap-4">
                 <div class="flex flex-col items-end text-sm">
-                    <a href="tel:+380662621300" class="hover:text-yellow-400">+38 066 262 13 00</a>
-                    <a href="tel:+380982601300" class="hover:text-yellow-400">+38 098 260 13 00</a>
+                    <a href="tel:+380662621300" class="hover:text-gray-400">+38 066 262 13 00</a>
+                    <a href="tel:+380982601300" class="hover:text-gray-400">+38 098 260 13 00</a>
                 </div>
                 <button
                         data-modal-toggle
-                        class="bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 px-4 py-2 rounded text-sm font-bold shadow-lg transform transition-transform hover:scale-105 text-[#201C1C]">
+                        class="bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-500 hover:to-gray-400 px-4 py-2 rounded text-sm font-bold shadow-lg transform transition-transform hover:scale-105 text-[#201C1C]">
                     🦷 Запис
                 </button>
                 <button id="mobile-menu-button" class="text-gray-300 hover:text-white p-2">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
             </div>
@@ -102,10 +104,10 @@ const { title = 'El Clinic Dental' } = Astro.props;
     <div id="mobile-menu" class="lg:hidden mobile-menu bg-[#2A2525]">
         <div class="container mx-auto px-4 py-4">
             <div class="flex flex-col space-y-4">
-                <a href="#services" class="block py-2 hover:text-yellow-400">Послуги</a>
-                <a href="#doctors" class="block py-2 hover:text-yellow-400">Лікарі</a>
-                <a href="#prices" class="block py-2 hover:text-yellow-400">Ціни</a>
-                <a href="#reviews" class="block py-2 hover:text-yellow-400">Відгуки</a>
+                <a href="#services" class="block py-2 hover:text-gray-400">Послуги</a>
+                <a href="#doctors" class="block py-2 hover:text-gray-400">Лікарі</a>
+                <a href="#prices" class="block py-2 hover:text-gray-400">Ціни</a>
+                <a href="#reviews" class="block py-2 hover:text-gray-400">Відгуки</a>
             </div>
         </div>
     </div>
@@ -117,7 +119,7 @@ const { title = 'El Clinic Dental' } = Astro.props;
     <div class="modal-content">
         <div class="flex justify-between items-center mb-6">
             <h3 class="text-2xl font-bold">Запис на прийом</h3>
-            <button class="text-gray-400 hover:text-white">
+            <button id="close_button" class="text-gray-400 hover:text-white">
                 ✕
             </button>
         </div>
@@ -126,17 +128,20 @@ const { title = 'El Clinic Dental' } = Astro.props;
               method="POST">
             <div>
                 <label class="block mb-2">Ваше ім'я</label>
-                <input name="name" type="text" class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <input name="name" type="text" required
+                       class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-500">
             </div>
 
             <div>
                 <label class="block mb-2">Номер телефону</label>
-                <input name="tel" type="tel" class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <input name="tel" type="tel" required
+                       class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-500">
             </div>
 
             <div>
                 <label class="block mb-2">Оберіть послугу</label>
-                <select name="service" class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <select name="service"
+                        class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-500">
                     <option>Консультація</option>
                     <option>Лікування карієсу</option>
                     <option>Професійне чищення</option>
@@ -145,7 +150,7 @@ const { title = 'El Clinic Dental' } = Astro.props;
 
             <button
                     type="submit"
-                    class="w-full bg-yellow-500 hover:bg-yellow-400 text-[#201C1C] font-bold py-3 rounded-lg transition-colors">
+                    class="w-full bg-gray-500 hover:bg-gray-400 text-[#201C1C] font-bold py-3 rounded-lg transition-colors">
                 Підтвердити запис
             </button>
         </form>
@@ -188,11 +193,20 @@ const { title = 'El Clinic Dental' } = Astro.props;
         });
 
         // Обработчики закрытия
+        // if (modal) {
+        //     modal.querySelectorAll('button[onclick="hideModal()"]').forEach(btn => {
+        //         btn.addEventListener('click', hideModal);
+        //     });
+        //
+        //     modal.addEventListener('click', (e) => {
+        //         if (e.target === modal) hideModal();
+        //     });
+        // }
         if (modal) {
-            modal.querySelectorAll('button[onclick="hideModal()"]').forEach(btn => {
-                btn.addEventListener('click', hideModal);
-            });
-
+            const closeButton = document.getElementById('close_button');
+            if (closeButton) {
+                closeButton.addEventListener('click', hideModal);
+            }
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) hideModal();
             });
@@ -237,8 +251,7 @@ const { title = 'El Clinic Dental' } = Astro.props;
     }
 
 
-
-//form___________________________________________________________
+    //form___________________________________________________________
     document.addEventListener("DOMContentLoaded", () => {
         const form = document.querySelector("form");
 
