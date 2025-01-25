@@ -4,6 +4,7 @@ import About from '../components/About.astro';
 import Services from '../components/Services.astro';
 import Doctors from '../components/Doctors.astro';
 import Reviews from '../components/Reviews.astro';
+import Hero from '../components/Hero.astro';
 import ConsultForm from '../components/ConsultForm.astro';
 ---
 
@@ -18,39 +19,14 @@ import ConsultForm from '../components/ConsultForm.astro';
 </head>
 <body class="bg-[#201C1C] text-white font-sans pt-20">
 <Navbar/>
-
 <main class="container mx-auto px-4 lg:px-8 pb-16">
-
-    <!-- Hero Section -->
-    <section class="text-justify py-8">
-        <h1 class="text-4xl font-extrabold bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent mb-4 text-center">
-            El Clinic Dental - сучасна стоматологічна клініка в Запоріжжі
-        </h1>
-        <p class="text-lg lg:text-xl  bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent">
-            Інноваційні технології лікування та профілактики захворювань зубів у самому центрі Запоріжжя
-        </p>
-        <p class="text-lg lg:text-xl  bg-gradient-to-r from-gray-400 to-gray-300 bg-clip-text text-transparent ">
-            Наша клініка пропонує повний спектр стоматологічних послуг, щоб забезпечити вашій посмішці бездоганний та здоровий вигляд.
-            Ми спеціалізуємося на високотехнологічних методах лікування зубів європейського стандарту,
-            і використовуємо найсучасніше обладнання для якісного та безболісного лікування та протезування зубів.
-        </p>
-    </section>
+    <Hero />
     <ConsultForm />
-    <!-- About Section -->
     <About />
-
-
-    <!-- Services -->
     <Services />
-
-    <!-- Doctors -->
     <Doctors />
-
-    <!-- Reviews -->
     <Reviews />
-
 </main>
-
 <!-- Footer -->
 <footer id="contact" class="bg-[#1B1818] py-8">
     <div class="container mx-auto px-4">
