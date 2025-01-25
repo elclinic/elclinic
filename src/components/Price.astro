@@ -1,0 +1,104 @@
+---
+const priceList = [
+    {
+        category: "Обстеження",
+        items: [
+            { name: "Консультація з фотопротоколом", price: "300 грн" },
+            { name: "Консультація, діагностика, складння плану лікування, фотопротокол", price: "1500 грн" }
+        ]
+    },
+    {
+        category: "Профілактика",
+        description: "Проводиться під мікроскопом та включає ультразвукову чистку, содоструйну чистку та полірування зубів",
+        items: [
+            { name: "Професійна гігієна першої категорії складності", price: "1200 грн" },
+            { name: "Професійна гігієна другої категорії складності", price: "1400 грн" },
+            { name: "Професійна гігієна третьої категорії складності", price: "від 1500 грн" }
+        ]
+    },
+    {
+        category: "Відбілювання",
+        items: [
+            { name: "Система Beyond USA (дві щелепи)", price: "5000 грн" }
+        ]
+    },
+    {
+        category: "Лікування карієсу",
+        description: "Лікування проводиться під мікроскопом",
+        items: [
+            { name: "Першої категорії", price: "від 1400 грн" },
+            { name: "Другої категорії", price: "від 1600 грн" },
+            { name: "Третьої категорії", price: "від 2000 грн" },
+            { name: "Художня реставрація", price: "від 3500 грн" }
+        ]
+    },
+    {
+        category: "Ендодонтія",
+        description: "Лікування під мікроскопом",
+        items: [
+            { name: "Первинне лікування кореневих каналів (різець, ікло)", price: "від 3000 грн" },
+            { name: "Повторне лікування кореневих каналів (різець, ікло)", price: "від 3500 грн" },
+            { name: "Первинне лікування кореневих каналів (премоляр)", price: "від 4000 грн" },
+            { name: "Повторне лікування кореневих каналів (премоляр)", price: "від 4500 грн" },
+            { name: "Первинне лікування кореневих каналів (моляр)", price: "від 5000 грн" },
+            { name: "Вторинне лікування кореневих каналів (моляр)", price: "від 6000 грн" },
+            { name: "Достати уламок інструменту з кореневих каналів", price: "від 1000 грн" }
+        ]
+    },
+    {
+        category: "Хірургія (видалення)",
+        items: [
+            { name: "Видалення зуба першої категорії складності", price: "від 1000 грн" },
+            { name: "Видалення зуба другої категорії складності", price: "від 1300 грн" },
+            { name: "Видалення зуба третьої категорії складності", price: "від 1500 грн" },
+            { name: "Видалення зуба четвертої та п'ятої категорії (зуби мудрості)", price: "від 3000 грн" }
+        ]
+    },
+    {
+        category: "Імплантація",
+        items: [
+            { name: "Встановлення дентального імплантанту INNO, DIO", price: "від 10000 грн" },
+            { name: "Встановлення дентального імплантанту MEGAGEN", price: "від 15000 грн" },
+            { name: "Встановлення дентального імплантанту STRAUMANN", price: "від 28000 грн" },
+            { name: "Закритий сінус-ліфтинг", price: "від 7000 - 15000 грн" },
+            { name: "Відкритий сінус-ліфтинг", price: "30000 грн" },
+            { name: "Виготовлення та використання А-PRФ (одна пробірка)", price: "500 грн" },
+            { name: "Встановлення формувача ясен", price: "від 2000 грн" }
+        ]
+    }
+];
+---
+
+<section id="price-list" class="py-12 bg-[#2A2525] text-gray-100 rounded-2xl mb-8">
+    <div class="container mx-auto px-4 lg:px-8">
+        <h2 class="text-3xl font-bold mb-8 text-center">Прайс-лист</h2>
+
+        <div class="space-y-8">
+            {priceList.map((section) => (
+                    <div class="bg-[#363232] rounded-xl p-6 shadow-lg">
+                        <div class="mb-4">
+                            <h3 class="text-2xl font-semibold text-primary-400">{section.category}</h3>
+                            {section.description &&
+                                    <p class="text-gray-400 mt-2 text-sm">{section.description}</p>
+                            }
+                        </div>
+
+                        <div class="space-y-4">
+                            {section.items.map((item) => (
+                                    <div class="flex justify-between items-center py-3 px-4 bg-[#2A2525] rounded-lg hover:bg-[#302b2b] transition-colors">
+                                        <span class="text-gray-300">{item.name}</span>
+                                        <span class="font-medium text-primary-300">{item.price}</span>
+                                    </div>
+                            ))}
+                        </div>
+                    </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style>
+    .text-primary-400 { color: #F3A446; }
+    .text-primary-300 { color: #F8B572; }
+    .bg-primary-500 { background-color: #2A2525; }
+</style>

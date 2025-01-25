@@ -1,0 +1,32 @@
+---
+interface Props {
+    query: string;
+    title: string;
+    zoom?: number;
+    height?: string;
+}
+
+const {
+    query = "El Clinic Dental",
+    title = "Стоматологія El Clinic Dental",
+    zoom = 15,
+    height = "450px"
+} = Astro.props;
+
+const encodedQuery = encodeURIComponent(query);
+---
+
+<div class="w-screen relative left-1/2 right-1/2 -mx-[50vw] px-8 bg-[#2A2525] rounded-2xl pb-4">
+    <h2 class="text-3xl font-bold py-8 text-center">Розташування на мапі:</h2>
+    <iframe
+            width="100%"
+            height={height}
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src={`https://maps.google.com/maps?q=${encodedQuery}&z=${zoom}&output=embed&iwloc=near`}
+            title={title}
+            aria-label={title}
+            class="border-0"
+    ></iframe>
+</div>
