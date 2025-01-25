@@ -1,0 +1,49 @@
+---
+// src/components/VideoPlayer.astro
+
+const { src, poster = "", ratio = "16/9" } = Astro.props;
+---
+
+<style is:global>
+    .video-container {
+        @apply bg-[#2A2525] rounded-xl overflow-hidden shadow-xl;
+        border: 1px solid #3A3535;
+    }
+
+    .video-wrapper {
+        position: relative;
+        padding-bottom: calc(100% / (${ratio}));
+    }
+
+    .video-player {
+        @apply absolute w-full h-full object-cover;
+    }
+</style>
+
+<div class="video-container">
+    <div class="video-wrapper">
+        <video
+                class="video-player"
+                controls
+                poster={poster}
+                preload="metadata"
+        >
+            <source src={src} type="video/mp4">
+            Ваш браузер не поддерживает видео тег.
+        </video>
+    </div>
+</div>
+
+<!-- Альтернатива для YouTube -->
+<!--
+<div class="video-container">
+  <iframe
+    class="w-full aspect-video"
+    src="https://www.youtube.com/embed/ВАШ_ID_ВИДЕО"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+-->
