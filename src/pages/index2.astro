@@ -1,23 +1,45 @@
 ---
 import Navbar from '../components/Navbar.astro';
-const { title, description } = Astro.props;
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Doctors from '../components/Doctors.astro';
+import Reviews from '../components/Reviews.astro';
+import Hero from '../components/Hero.astro';
+import Price from '../components/Price.astro';
+import Map from '../components/Map.astro';
+import ServicesList from '../components/ServicesList.astro';
+import ConsultForm from '../components/ConsultForm.astro';
 ---
 
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content={description} />
-    <title>{title}</title>
+    <title>El Clinic Dental - Стоматологія Запоріжжя</title>
+    <style>
+
+    </style>
 </head>
-
 <body class="bg-[#201C1C] text-white font-sans pt-20">
-<Navbar />
-
+<Navbar/>
 <main class="container mx-auto px-4 lg:px-8 pb-16">
-    <slot />
-</main>
+    <Hero />
+    <ConsultForm />
+    <About />
 
+    <Services />
+    <Doctors />
+    <ServicesList />
+    <Reviews />
+    <Price />
+    <Map
+            query="Стоматологія El Clinic Dental"
+            title="Стоматологічна клініка El Clinic Dental"
+            zoom={15}
+            type="m"
+    />
+</main>
+<!-- Footer -->
 <footer id="contact" class="bg-[#1B1818] py-8">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
