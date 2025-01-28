@@ -22,25 +22,27 @@ onMount(() => {
 </style>
 
 <div class="consult-form mb-4">
+    <div class="flex justify-center">
     <h2 class="text-2xl font-bold mb-6 text-white">Отримати консультацію</h2>
+    </div>
 
     <form class="space-y-6" method="POST">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div>
-                <label class="block mb-2">Ваше ім'я</label>
-                <input name="name" type="text" required
+                <label for="name_input" class="block mb-2">Ваше ім'я</label>
+                <input id="name_input" name="name" type="text" required
                        class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-500">
             </div>
 
             <div>
-                <label class="block mb-2">Номер телефону</label>
+                <label for="tel" class="block mb-2">Номер телефону</label>
                 <input id="tel" name="tel" type="tel" required
                        class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-500 placeholder="+38 (999) 999-99-99" ">
             </div>
 
             <div>
-                <label class="block mb-2">Оберіть послугу</label>
-                <select name="service"
+                <label for="services_select" class="block mb-2">Оберіть послугу</label>
+                <select id="services_select" name="service"
                         class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-500">
                     <option>Консультація</option>
                     <option>Лікування карієсу</option>
