@@ -1,10 +1,22 @@
 ---
 // src/components/ConsultForm.astro
+// MaskedInput.astro
+import { onMount } from "solid-js";
+import Inputmask from "inputmask";
+
+let inputRef;
+
+onMount(() => {
+    if (inputRef) {
+        const mask = new Inputmask("99/99/9999"); // Пример маски (дата)
+        mask.mask(inputRef);
+    }
+});
 ---
 
 <style is:global>
     .consult-form {
-        @apply bg-[#2A2525] rounded-xl p-6 max-w-2xl mx-auto;
+        @apply bg-[#2A2525] rounded-xl p-6 max-w-4xl mx-auto;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
     }
 </style>
@@ -13,42 +25,37 @@
     <h2 class="text-2xl font-bold mb-6 text-white">Отримати консультацію</h2>
 
     <form class="space-y-6" method="POST">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div>
-                <label for="place" class="block text-gray-300 mb-2">Місце</label>
-                <select
-                        title="Місце консультації"
-                        name="place"
-                        id="place"
-                        class="w-full bg-[#3A3535] rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
-                >
-                    <option value="office">Офіс (Київ)</option>
-                    <option value="online">Онлайн консультація</option>
-                    <option value="home">Виїзд додому</option>
-                </select>
+                <label class="block mb-2">Ваше ім'я</label>
+                <input name="name" type="text" required
+                       class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-500">
             </div>
 
             <div>
-                <label for="certification" class="block text-gray-300 mb-2">Тестифікації</label>
-                <select
-                        title="Тестифікації"
-                        name="certification"
-                        id="certification"
-                        class="w-full bg-[#3A3535] rounded-lg p-3 text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
-                >
-                    <option value="basic">Базова перевірка</option>
-                    <option value="full">Повна діагностика</option>
-                    <option value="expert">Експертний аналіз</option>
+                <label class="block mb-2">Номер телефону</label>
+                <input id="tel" name="tel" type="tel" required
+                       class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-500 placeholder="+38 (999) 999-99-99" ">
+            </div>
+
+            <div>
+                <label class="block mb-2">Оберіть послугу</label>
+                <select name="service"
+                        class="w-full bg-[#3A3535] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    <option>Консультація</option>
+                    <option>Лікування карієсу</option>
+                    <option>Професійне чищення</option>
                 </select>
             </div>
         </div>
-
+        <div class="flex justify-center">
         <button
                 type="submit"
-                class="w-full bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-500 hover:to-gray-400 text-[#201C1C] font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02]"
+                class="w-1/3 bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-500 hover:to-gray-400 text-[#201C1C] font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02]"
         >
-            Відправляти
+            Відправіти
         </button>
+        </div>
     </form>
 </div>
 
@@ -73,7 +80,7 @@
             const data = {
                 to: 'admin@elclinic.com.ua',
                 subject: 'Нова консультація',
-                message: `Місце: ${formData.get("place")}\nТестифікації: ${formData.get("certification")}`
+                message: `Ім'я: ${formData.get("name")}\nТелефон: ${formData.get("tel")} \nПослуга: ${formData.get("service")}`
             };
 
             try {
